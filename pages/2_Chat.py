@@ -128,32 +128,32 @@ Provide a helpful answer.
 """
 
     st.sidebar.write(
-    "Prompt Length:",
-    len(prompt)
-)
-
-with st.spinner(
-    "Generating response..."
-):
-
-    answer = call_llm(
-        prompt
+        "Prompt Length:",
+        len(prompt)
     )
 
-    with st.chat_message(
-        "assistant"
+    with st.spinner(
+        "Generating response..."
     ):
 
-        st.markdown(
-            answer
+        answer = call_llm(
+            prompt
         )
 
-    st.session_state["messages"].append(
-        {
-            "role": "assistant",
-            "content": answer
-        }
-    )
+        with st.chat_message(
+            "assistant"
+        ):
+
+            st.markdown(
+                answer
+            )
+
+        st.session_state["messages"].append(
+            {
+                "role": "assistant",
+                "content": answer
+            }
+        )
 
 with st.sidebar:
 
